@@ -6,7 +6,8 @@ class TodoEntryBox extends Component {
         super(props)
         this.state = {
             value: '',
-            list: []
+            list: [],
+            doneList: []
         }
     }
 
@@ -27,6 +28,38 @@ class TodoEntryBox extends Component {
         event.preventDefault();
     }
 
+    updateLists = () => {
+        this.setState({
+            list: this.state.list,
+            doneList: this.state.doneList
+        })
+    }
+
+    deleteFromList = (list, val) => {
+        for (let i = 0; i < list.length; i++) {
+            if (list[i] === val) {
+                list.splice(i, 1)
+            }
+        }
+    }
+
+    handleClickOff = (event) => {
+        const element = event.target
+        const val = element.outerText
+        element.classList.toggle("crossed-line")
+        this.deleteFromList(this.state.list, val) //remove val from list
+        this.state.doneList.unshift(val) //add removed val to deleted list
+        this.updateLists()
+    }
+
+    handleClickOn = (event) => {
+        const element = event.target
+        const val = element.outerText
+        element.classList.toggle("crossed-line")
+        this.deleteFromList(this.state.doneList, val)
+        this.state.list.unshift(val)
+        this.updateLists()
+    }
 
     render() {
         return (
@@ -34,7 +67,7 @@ class TodoEntryBox extends Component {
                 <form id="entry" onSubmit={this.handleSubmit}>
                     <input type="text" placeholder="Enter todo..." onChange={this.handleChange} />
                 </form>
-                <Entry list={this.state.list} />
+                <Entry list={this.state.list} doneList={this.state.doneList} clickOff={this.handleClickOff} clickOn={this.handleClickOn} />
             </div>
 
         );
