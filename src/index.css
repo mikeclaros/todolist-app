@@ -1,3 +1,19 @@
 .crossed-line {
     text-decoration: line-through;
 }
+
+.float-left {
+    overflow: auto;
+    float: left;
+}
+
+.fleft-small-margin {
+    float: left;
+    margin-left: 50px;
+}
+
+.list-config {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Entry from './Entry'
+import Button from './Button'
+import '../index.css'
 
 class TodoEntryBox extends Component {
     constructor(props) {
@@ -43,7 +45,8 @@ class TodoEntryBox extends Component {
     updateLists = () => {
         this.setState({
             list: this.state.list,
-            doneList: this.state.doneList
+            doneList: this.state.doneList,
+            setList: this.state.setList
         })
     }
 
@@ -73,13 +76,29 @@ class TodoEntryBox extends Component {
         this.updateLists()
     }
 
+    clearList = (event) => {
+        let { list, doneList, setList } = this.state
+        list.splice(0, list.length)
+        doneList.splice(0, list.length)
+        setList.clear()
+        this.updateLists()
+    }
+
     render() {
         return (
             <div>
-                <form id="entry" onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder="Enter todo..." onChange={this.handleChange} />
-                </form>
-                <Entry list={this.state.list} doneList={this.state.doneList} clickOff={this.handleClickOff} clickOn={this.handleClickOn} />
+                <div>
+                    <form className="float-left" id="entry" onSubmit={this.handleSubmit}>
+                        <input type="text" placeholder="Enter todo..." onChange={this.handleChange} />
+                    </form>
+                    <form className="fleft-small-margin">
+                        <button onClick={this.clearList}>Clear</button>
+                    </form>
+                </div>
+
+                <div className="list-config">
+                    <Entry list={this.state.list} doneList={this.state.doneList} clickOff={this.handleClickOff} clickOn={this.handleClickOn} />
+                </div>
             </div>
 
         );

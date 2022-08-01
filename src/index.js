@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css'
-import AddButon from './components/addButton'
+import AddButton from './components/Button'
 import TodoEntryBox from './components/TodoEntryBox';
 
 
