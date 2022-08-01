@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 class AddEntry extends Component {
-    state = { 
+    state = {
         isPressed: false,
-    } 
-    render() { 
+    }
+    render() {
         return (
             <button>+</button>
         );
     }
 }
- 
+
 export default AddEntry;

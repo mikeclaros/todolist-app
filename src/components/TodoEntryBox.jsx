@@ -7,7 +7,8 @@ class TodoEntryBox extends Component {
         this.state = {
             value: '',
             list: [],
-            doneList: []
+            doneList: [],
+            setList: new Set(),
         }
     }
 
@@ -17,15 +18,26 @@ class TodoEntryBox extends Component {
         })
     }
 
+    // handleSubmit = (event) => {
+    //     let { list, value } = this.state
+    //     list.unshift(value)
+    //     this.setState({
+    //         value: ''
+    //     })
+    //     document.getElementById("entry").reset();
+    //     console.log(list)
+    //     event.preventDefault();
+    // }
+
     handleSubmit = (event) => {
-        let { list, value } = this.state
-        list.unshift(value)
-        this.setState({
-            value: ''
-        })
-        document.getElementById("entry").reset();
-        console.log(list)
-        event.preventDefault();
+        let { setList, value, list } = this.state
+        if (!setList.has(value)) {
+            setList.add(value)
+            list.unshift(value)
+        }
+        this.setState({ value: '' })
+        document.getElementById("entry").reset()
+        event.preventDefault()
     }
 
     updateLists = () => {
