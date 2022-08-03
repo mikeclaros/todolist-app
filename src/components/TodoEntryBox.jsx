@@ -49,6 +49,9 @@ class TodoEntryBox extends Component {
             doneList: this.state.doneList,
             setList: this.state.setList
         })
+        let { list, doneList } = this.state
+        localStorage.setItem('list', JSON.stringify(list))
+        localStorage.setItem('doneList', JSON.stringify(doneList))
     }
 
     deleteFromList = (list, val) => {
