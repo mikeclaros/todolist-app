@@ -72,7 +72,7 @@ class TodoEntryBox extends Component {
     clearList = (event) => {
         let { list, doneList, setList } = this.state
         list.splice(0, list.length)
-        doneList.splice(0, list.length)
+        doneList.splice(0, doneList.length)
         setList.clear()
         localStorage.clear()
         this.updateLists()
