@@ -20,17 +20,6 @@ class TodoEntryBox extends Component {
         })
     }
 
-    // handleSubmit = (event) => {
-    //     let { list, value } = this.state
-    //     list.unshift(value)
-    //     this.setState({
-    //         value: ''
-    //     })
-    //     document.getElementById("entry").reset();
-    //     console.log(list)
-    //     event.preventDefault();
-    // }
-
     handleSubmit = (event) => {
         let { setList, value, list } = this.state
         if (!setList.has(value)) {
