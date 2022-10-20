@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Entry from './Entry'
-import Button from './Button'
+import Entry from './Entry.jsx'
 import '../index.css'
 
 class TodoEntryBox extends Component {

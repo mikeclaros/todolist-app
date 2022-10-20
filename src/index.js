@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css'
-import AddButton from './components/Button'
-import TodoEntryBox from './components/TodoEntryBox';
+import TodoEntryBox from './components/TodoEntryBox.jsx'
 
 
 class Table extends Component {
