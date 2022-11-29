@@ -7,8 +7,8 @@ class TodoEntryBox extends Component {
         super(props)
         this.state = {
             value: '',
-            list: JSON.parse(localStorage.getItem('list')) || [],
-            doneList: JSON.parse(localStorage.getItem('doneList')) || [],
+            list: JSON.parse(sessionStorage.getItem('list')) || [],
+            doneList: JSON.parse(sessionStorage.getItem('doneList')) || [],
             setList: new Set(),
         }
     }
@@ -24,7 +24,7 @@ class TodoEntryBox extends Component {
         if (!setList.has(value)) {
             setList.add(value)
             list.unshift(value)
-            localStorage.setItem('list', JSON.stringify(this.state.list))
+            sessionStorage.setItem('list', JSON.stringify(this.state.list))
         }
         this.setState({ value: '' })
         document.getElementById("entry").reset()
@@ -38,8 +38,8 @@ class TodoEntryBox extends Component {
             setList: this.state.setList
         })
         let { list, doneList } = this.state
-        localStorage.setItem('list', JSON.stringify(list))
-        localStorage.setItem('doneList', JSON.stringify(doneList))
+        sessionStorage.setItem('list', JSON.stringify(list))
+        sessionStorage.setItem('doneList', JSON.stringify(doneList))
     }
 
     deleteFromList = (list, val) => {
@@ -73,7 +73,7 @@ class TodoEntryBox extends Component {
         list.splice(0, list.length)
         doneList.splice(0, doneList.length)
         setList.clear()
-        localStorage.clear()
+        sessionStorage.clear()
         this.updateLists()
     }
 

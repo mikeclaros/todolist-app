@@ -2,8 +2,12 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: './src/index.js',
+    performance: {
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000 // defaul size is small
+    },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Output Management',
