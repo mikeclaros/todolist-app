@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import Entry from './Entry.jsx'
 import Banner from './Banner.jsx'
 import '../index.css'
@@ -80,7 +80,7 @@ class TodoEntryBox extends Component {
 
     render() {
         return (
-            <div>
+            <div className='container'>
                 <Banner />
                 <div>
                     <form className="float-left" id="entry" onSubmit={this.handleSubmit}>
@@ -96,8 +96,8 @@ class TodoEntryBox extends Component {
                 </div>
             </div>
 
-        );
+        )
     }
 }
 
-export default TodoEntryBox;
+export default TodoEntryBox
