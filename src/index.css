@@ -16,3 +16,17 @@
     display: inline-block;
     white-space: nowrap;
 }
+
+.banner {
+    display: flexbox;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.banner-item {
+    border: 1px solid teal;
+    background-color: teal;
+    padding: 8px;
+    font-family: 'consolas', monospace;
+    font-size: 5vw;
+}

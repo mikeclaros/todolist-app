@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Entry from './Entry.jsx'
+import Banner from './Banner.jsx'
 import '../index.css'
 
 class TodoEntryBox extends Component {
@@ -80,6 +81,7 @@ class TodoEntryBox extends Component {
     render() {
         return (
             <div>
+                <Banner />
                 <div>
                     <form className="float-left" id="entry" onSubmit={this.handleSubmit}>
                         <input type="text" placeholder="Enter todo..." onChange={this.handleChange} />
