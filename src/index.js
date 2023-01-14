@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom/client';
-import 'bootstrap/dist/css/bootstrap.css'
 import TodoEntryBox from './components/TodoEntryBox.jsx'
 
 
